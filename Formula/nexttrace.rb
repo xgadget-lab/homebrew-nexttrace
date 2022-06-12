@@ -1,18 +1,18 @@
 class Nexttrace < Formula
-  desc "一款开源的可视化路由跟踪CLI工具"
-  homepage ""
-  version "v0.1.6-beta.4"
-  url "https://github.com/xgadget-lab/nexttrace/archive/refs/tags/#{version}.tar.gz"
-  sha256 "cc4bd5fdeac539e2a02e9ea04718f78e007110fb98f7655739cedd9716068293"
-  license "GPL-3.0"
+    desc "An open source visual route tracking CLI tool"
+    homepage "https://trace.ac"
+    version "v0.1.9"
+    url "https://github.com/xgadget-lab/nexttrace/archive/refs/tags/v0.1.9.tar.gz"
+    sha256 "fc1232f9fcaff652590b3c6cbea80d475c6044de55ce649870b3914bebebec93"
+    license "GPL-3.0"
 
-  depends_on "go" => :build
-
-  def install
-    system "go", "build", *std_go_args(ldflags: "-X 'github.com/xgadget-lab/nexttrace/printer.version=#{version}' -s -w")
+    depends_on "go" => :build
+  
+    def install
+      system "go", "build", *std_go_args(ldflags: "-X 'github.com/xgadget-lab/nexttrace/printer.version=v0.1.9' -s -w")
+    end
+  
+    test do
+      assert_match "NextTrace", shell_output("#{bin}/nexttrace -V")
+    end
   end
-
-  test do
-    assert_match "NextTrace", shell_output("#{bin}/nexttrace -V")
-  end
-end
