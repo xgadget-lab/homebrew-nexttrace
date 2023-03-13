@@ -3,7 +3,7 @@ class Nexttrace < Formula
     homepage "https://trace.ac"
     version "v1.1.3"
     url "https://github.com/xgadget-lab/nexttrace/archive/refs/tags/v1.1.3.tar.gz"
-    sha256 "638b71f9ee735e9129c3712ac0c0777669e272b56d2317f2f331013a20dc4ddb"
+    sha256 "d7aa855c469256460b481efc254ebad13cd918aa2ba888bf0821f57d37da5362"
     license "GPL-3.0"
 
     depends_on "go" => :build
