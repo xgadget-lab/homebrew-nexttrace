@@ -14,7 +14,7 @@ class Nexttrace < Formula
     depends_on "go" => :build
   
     def install
-      system "go", "build", *std_go_args(ldflags: "-X 'github.com/xgadget-lab/nexttrace/printer.version=${version:1:$((${#version} - 1 - 1))}' -s -w")
+      system "go", "build", *std_go_args(ldflags: "-X 'github.com/xgadget-lab/nexttrace/config.Version=${version:1:$((${#version} - 1 - 1))}' -s -w")
     end
   
     test do
