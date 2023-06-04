@@ -1,11 +1,11 @@
 # !/bin/bash
-export version="$(curl -s https://api.github.com/repos/sjlleo/nexttrace/releases/latest | jq ".name")"
+version="$(curl -s https://api.github.com/repos/sjlleo/nexttrace-core/releases/latest | jq ".name")"
 url="https://github.com/xgadget-lab/nexttrace/archive/refs/tags/${version:1:$((${#version} - 1 - 1))}.tar.gz"
 sha256="$(curl -sL ${url} | sha256sum | cut -f1 -d' ')"
 cat >Formula/nexttrace.rb <<EOF
 class Nexttrace < Formula
     desc "An open source visual route tracking CLI tool"
-    homepage "https://trace.ac"
+    homepage "https://mtr.moe"
     version ${version}
     url "${url}"
     sha256 "${sha256}"
