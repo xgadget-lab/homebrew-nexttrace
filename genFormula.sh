@@ -1,12 +1,13 @@
 # !/bin/bash
-version="$(curl -sL https://api.github.com/repos/sjlleo/nexttrace-core/releases/latest | jq ".name")"
-url="https://github.com/xgadget-lab/nexttrace/archive/refs/tags/${version:1:$((${#version} - 1 - 1))}.tar.gz"
-sha256="$(curl -sL ${url} | sha256sum | cut -f1 -d' ')"
+release="$(curl -sL https://api.github.com/repos/xgadget-lab/nexttrace/releases/latest)"
+version="$(jq -r ".name" <<< "$release")"
+url="$(jq -r ".tarball_url" <<< "$release")"
+sha256="$(curl -sL "$url" | sha256sum | cut -f1 -d' ')"
 cat >Formula/nexttrace.rb <<EOF
 class Nexttrace < Formula
     desc "An open source visual route tracking CLI tool"
     homepage "https://mtr.moe"
-    version ${version}
+    version "${version}"
     url "${url}"
     sha256 "${sha256}"
     license "GPL-3.0"
@@ -14,7 +15,7 @@ class Nexttrace < Formula
     depends_on "go" => :build
   
     def install
-      system "go", "build", *std_go_args(ldflags: "-X 'github.com/xgadget-lab/nexttrace/config.Version=${version:1:$((${#version} - 1 - 1))}' -s -w")
+      system "go", "build", *std_go_args(ldflags: "-X 'github.com/xgadget-lab/nexttrace/config.Version=${version}' -s -w")
     end
   
     test do
