@@ -1,9 +1,9 @@
 class Nexttrace < Formula
     desc "An open source visual route tracking CLI tool"
     homepage "https://mtr.moe"
-    version "v1.1.7-1"
-    url "https://github.com/xgadget-lab/nexttrace/archive/refs/tags/v1.1.7-1.tar.gz"
-    sha256 "1c937a9f7c2f1d4a3e71e63db2929a5b24d438c63efd9715b00277f1b3add4cb"
+    version "v1.2.0.3"
+    url "https://github.com/nxtrace/NTrace-V1/archive/refs/tags/v1.2.0.3.tar.gz"
+    sha256 "261d88ff2a4e03979bf53923485bb27ed6ebbd5318ba52a9659b6c831e24e78b"
     license "GPL-3.0"
 
     depends_on "go" => :build
