@@ -1,11 +1,11 @@
 # !/bin/bash
-version="$(curl -s https://api.github.com/repos/sjlleo/nexttrace-core/releases/latest | jq ".name")"
-url="https://github.com/xgadget-lab/nexttrace/archive/refs/tags/${version:1:$((${#version} - 1 - 1))}.tar.gz"
+version="$(curl -s https://api.github.com/repos/nxtrace/NTrace-V1/releases/latest | jq ".name")"
+url="https://github.com/nxtrace/NTrace-V1/archive/refs/tags/${version:1:$((${#version} - 1 - 1))}.tar.gz"
 sha256="$(curl -sL ${url} | sha256sum | cut -f1 -d' ')"
 cat >Formula/nexttrace.rb <<EOF
 class Nexttrace < Formula
     desc "An open source visual route tracking CLI tool"
-    homepage "https://mtr.moe"
+    homepage "https://github.com/nxtrace/NTrace-V1"
     version ${version}
     url "${url}"
     sha256 "${sha256}"
@@ -14,7 +14,7 @@ class Nexttrace < Formula
     depends_on "go" => :build
   
     def install
-      system "go", "build", *std_go_args(ldflags: "-X 'github.com/xgadget-lab/nexttrace/config.Version=${version:1:$((${#version} - 1 - 1))}' -s -w")
+      system "go", "build", *std_go_args(ldflags: "-X 'github.com/nxtrace/NTrace-V1/config.Version=${version:1:$((${#version} - 1 - 1))}' -s -w")
     end
   
     test do
