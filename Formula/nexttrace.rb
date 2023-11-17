@@ -1,15 +1,15 @@
 class Nexttrace < Formula
     desc "An open source visual route tracking CLI tool"
     homepage "https://github.com/nxtrace/NTrace-V1"
-    version "v1.2.4.2"
-    url "https://github.com/nxtrace/NTrace-V1/archive/refs/tags/v1.2.4.2.tar.gz"
-    sha256 "8ff77077a9b5fdb443f6092dfdebf9b972fdea2ac5204e1f70a87eed4e46ea0c"
+    version "v1.2.6"
+    url "https://github.com/nxtrace/NTrace-V1/archive/refs/tags/v1.2.6.tar.gz"
+    sha256 "ec4f52e5b6aac8a61ee3b7b126a2730514c1d748a6e3e24267587d2e07a43fef"
     license "GPL-3.0"
 
     depends_on "go" => :build
   
     def install
-      system "go", "build", *std_go_args(ldflags: "-X 'github.com/nxtrace/NTrace-core/config.Version=v1.2.4.2' -s -w")
+      system "go", "build", *std_go_args(ldflags: "-X 'github.com/nxtrace/NTrace-core/config.Version=v1.2.6' -s -w")
     end
   
     test do
