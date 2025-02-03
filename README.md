@@ -1,10 +1,8 @@
-# Xgadget-lab Nexttrace
+# nxtrace/NTrace-core (Aka NextTrace)
 
 ## How do I install these formulae?
 
-`brew install xgadget-lab/nexttrace/<formula>`
-
-Or `brew tap xgadget-lab/nexttrace` and then `brew install <formula>`.
+`brew tap nxtrace/nexttrace` and then `brew install nxtrace/nexttrace/nexttrace`.
 
 ## Documentation
 
